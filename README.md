@@ -17,3 +17,7 @@ Dit is een schaalbaar en veilig platform voor Drupal-websites, draaiend in Docke
 - **Trivy**: Gebruikt om container-images te scannen op kwetsbaarheden.
 - **Falco**: Bewaakt verdacht gedrag in containers tijdens runtime.
   - **Test**: Een shell gestart in de Drupal-container (`docker exec -it drupal-platform_drupal_1 bash`). Falco detecteerde dit en logde het in `/var/log/syslog` met de melding: "A shell was spawned in a container with an attached terminal".
+## CI/CD
+- **GitHub Actions**: Automatische pipeline die bij elke push naar de `master`-branch de Docker-containers bouwt, start, test of de Drupal-site bereikbaar is, en de containers weer stopt.
+  - Workflow-bestand: `.github/workflows/ci.yml`
+  - Test: Controleert of de site bereikbaar is via `http://localhost` met een `curl`-test.

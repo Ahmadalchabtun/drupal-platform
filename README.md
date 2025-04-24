@@ -12,3 +12,8 @@ Dit is een schaalbaar en veilig platform voor Drupal-websites, draaiend in Docke
 - Drupal: De website
 - MySQL: Database
 - Nginx: Webserver
+
+## Beveiliging
+- **Trivy**: Gebruikt om container-images te scannen op kwetsbaarheden.
+- **Falco**: Bewaakt verdacht gedrag in containers tijdens runtime.
+  - **Test**: Een shell gestart in de Drupal-container (`docker exec -it drupal-platform_drupal_1 bash`). Falco detecteerde dit en logde het in `/var/log/syslog` met de melding: "A shell was spawned in a container with an attached terminal".

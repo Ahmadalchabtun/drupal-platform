@@ -21,3 +21,13 @@ Dit is een schaalbaar en veilig platform voor Drupal-websites, draaiend in Docke
 - **GitHub Actions**: Automatische pipeline die bij elke push naar de `master`-branch de Docker-containers bouwt, start, test of de Drupal-site bereikbaar is, en de containers weer stopt.
   - Workflow-bestand: `.github/workflows/ci.yml`
   - Test: Controleert of de site bereikbaar is via `http://localhost` met een `curl`-test.
+## Kubernetes (met K3s)
+- Gebruik K3s om een lichtgewicht Kubernetes-cluster te draaien met 1 master en 2 worker-nodes.
+- Cluster-opzet:
+  - Master: `k3s-master` (IP: 192.168.120.16)
+  - Worker 1: `k3s-worker1` (IP: 192.168.120.134)
+  - Worker 2: `k3s-worker2` (IP: 192.168.120.136)
+- Netwerkconfiguratie:
+  - IP-adressen van alle nodes zijn toegevoegd aan `/etc/hosts` op elke node.
+- Kubectl configuratie:
+  - `kubeconfig` is gekopieerd naar `~/.kube/config` op alle nodes en wijst naar `https://192.168.120.16:6443`.
